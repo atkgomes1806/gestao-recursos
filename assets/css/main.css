@@ -21,4 +21,5 @@
 /* Páginas */
 @import './pages/home.css';
 @import './pages/cadastrar.css';
+@import './pages/consultar.css';
 @import './pages/configuracoes.css';

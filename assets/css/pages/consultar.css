@@ -1,0 +1,210 @@
+/* ─────────────────────────────────────────────
+   Consultar — filtros, métricas e listagem
+   ───────────────────────────────────────────── */
+.consultar-page__header {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.consultar-page__metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 0;
+}
+
+.consultar-page__metrics--compact {
+    grid-template-columns: 1fr;
+}
+
+.consultar-page__metrics-panel {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 12px 12px;
+}
+
+.consultar-page__metrics-panel summary {
+    cursor: pointer;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+}
+
+.consultar-page__metrics-panel[open] summary {
+    margin-bottom: 10px;
+}
+
+.metric-card {
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(20px);
+}
+
+.metric-card__label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.metric-card__value {
+    display: block;
+    margin-top: 6px;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--text-primary);
+}
+
+.consultar-page__content {
+    display: grid;
+    grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+    gap: 28px;
+}
+
+.consultar-page__filters,
+.consultar-page__results {
+    display: grid;
+    gap: 18px;
+    align-content: start;
+}
+
+.consultar-page__filters {
+    position: sticky;
+    top: 24px;
+}
+
+.consultar-page__filter-actions {
+    justify-content: flex-start;
+}
+
+.consultar-page__selection-actions {
+    display: grid;
+    gap: 10px;
+}
+
+.consultar-page__selection-actions .btn {
+    justify-content: center;
+    text-align: center;
+}
+
+.consultar-page__export-field {
+    margin: 2px 0;
+}
+
+.consultar-page__list {
+    gap: 16px;
+}
+
+.resource-card {
+    padding: 20px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.16);
+}
+
+.resource-card__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.resource-card__check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.resource-card__check input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+}
+
+.resource-card__identifier {
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary-light);
+    margin-bottom: 6px;
+}
+
+.resource-card__title {
+    font-size: var(--font-size-lg);
+}
+
+.resource-card__status {
+    min-width: 110px;
+}
+
+.resource-card__status--ativo {
+    background: rgba(52, 199, 89, 0.14);
+    color: #89f5aa;
+}
+
+.resource-card__status--descartado {
+    background: rgba(255, 99, 71, 0.14);
+    color: #ffb4a4;
+}
+
+.resource-card__meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.resource-card__meta-item {
+    padding: 14px 16px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resource-card__meta-item strong {
+    color: var(--text-primary);
+}
+
+.resource-card__meta-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+@media (max-width: 1024px) {
+    .consultar-page__content {
+        grid-template-columns: 1fr;
+    }
+
+    .consultar-page__filters {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .resource-card__top,
+    .resource-card__meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-card__top {
+        display: grid;
+    }
+
+    .resource-card__status {
+        min-width: 0;
+        width: fit-content;
+    }
+}

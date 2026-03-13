@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gestão de Recursos</title>
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body>
+
+<body class="home">
 
   <!-- Orbs de fundo -->
   <div class="bg-orb bg-orb--1"></div>
@@ -18,9 +20,9 @@
     <div class="card__header">
       <div class="logo-icon">
         <svg viewBox="0 0 24 24">
-          <path d="M2 7.5 12 2l10 5.5v9L12 22 2 16.5v-9Z"/>
-          <path d="M12 2v20M2 7.5l10 5.5 10-5.5"/>
-          <path d="M7 4.75 17 10.25"/>
+          <path d="M2 7.5 12 2l10 5.5v9L12 22 2 16.5v-9Z" />
+          <path d="M12 2v20M2 7.5l10 5.5 10-5.5" />
+          <path d="M7 4.75 17 10.25" />
         </svg>
       </div>
       <p class="card__greeting" data-greeting>Bem-vindo</p>
@@ -32,50 +34,51 @@
       <button class="btn btn--primary" data-route="cadastrar">
         <span class="btn__icon">
           <svg viewBox="0 0 24 24">
-            <path d="M12 5v14M5 12h14"/>
+            <path d="M12 5v14M5 12h14" />
           </svg>
         </span>
         <span class="btn__text">
           <span class="btn__label">Cadastrar Recurso</span>
           <span class="btn__desc">Adicionar novo item ao estoque</span>
         </span>
-        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 18l6-6-6-6"/>
+        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
 
       <button class="btn btn--secondary" data-route="consultar">
         <span class="btn__icon">
           <svg viewBox="0 0 24 24">
-            <circle cx="11" cy="11" r="7"/>
-            <path d="M21 21l-4.35-4.35"/>
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.35-4.35" />
           </svg>
         </span>
         <span class="btn__text">
           <span class="btn__label">Consultar Recursos</span>
           <span class="btn__desc">Visualizar e filtrar o inventário</span>
         </span>
-        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 18l6-6-6-6"/>
+        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
 
       <button class="btn btn--ghost" data-route="configuracoes">
         <span class="btn__icon">
           <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/>
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z" />
           </svg>
         </span>
         <span class="btn__text">
           <span class="btn__label">Configurações</span>
           <span class="btn__desc">Preferências e ajustes do sistema</span>
         </span>
-        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 18l6-6-6-6"/>
+        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 18l6-6-6-6" />
         </svg>
       </button>
     </div>
@@ -87,4 +90,5 @@
 
   <script type="module" src="assets/js/main.js"></script>
 </body>
+
 </html>

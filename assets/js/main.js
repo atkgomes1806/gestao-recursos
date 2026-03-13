@@ -7,12 +7,14 @@
 import { initHome } from './pages/home.js';
 import { initCadastrarPage } from './pages/cadastrar.js';
 import { initConfiguracoesPage } from './pages/configuracoes.js';
+import { initConsultarPage } from './pages/consultar.js';
 
 const PAGE_INITIALIZERS = {
   'index.html': initHome,
   'cadastrar.html': initCadastrarPage,
+  'consultar.html': initConsultarPage,
   'configuracoes.html': initConfiguracoesPage,
-  '':           initHome, // raiz (/)
+  '': initHome, // raiz (/)
 };
 
 function getCurrentPage() {

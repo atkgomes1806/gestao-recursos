@@ -37,6 +37,10 @@ export function getCategories() {
   return getSettings().categories;
 }
 
+function normalizeSearchTerm(value) {
+  return stripAccents(String(value || '').trim().toLowerCase());
+}
+
 export function saveCategory({ id, name, code }) {
   const normalizedName = normalizeCategoryName(name);
   const normalizedCode = normalizeCategoryCode(code);
@@ -161,4 +165,66 @@ export function createResource({ categoryId, name, acquisitionDate, status }) {
 
   appendResource(resource);
   return resource;
+}
+
+export function listResources(filters = {}) {
+  const {
+    query = '',
+    categoryId = '',
+    status = '',
+  } = filters;
+
+  const normalizedQuery = normalizeSearchTerm(query);
+
+  return getResources()
+    .filter((resource) => {
+      if (categoryId && resource.categoryId !== categoryId) {
+        return false;
+      }
+
+      if (status && resource.status !== status) {
+        return false;
+      }
+
+      if (!normalizedQuery) {
+        return true;
+      }
+
+      const searchableContent = normalizeSearchTerm([
+        resource.identifier,
+        resource.name,
+        resource.categoryName,
+        resource.categoryCode,
+        resource.status,
+      ].join(' '));
+
+      return searchableContent.includes(normalizedQuery);
+    })
+    .sort((left, right) => {
+      const leftDate = new Date(left.createdAt || left.acquisitionDate || 0).getTime();
+      const rightDate = new Date(right.createdAt || right.acquisitionDate || 0).getTime();
+      return rightDate - leftDate;
+    });
+}
+
+export function getResourceMetrics() {
+  const resources = getResources();
+
+  return resources.reduce((metrics, resource) => {
+    metrics.total += 1;
+
+    if (resource.status === 'ativo') {
+      metrics.active += 1;
+    }
+
+    if (resource.status === 'descartado') {
+      metrics.discarded += 1;
+    }
+
+    return metrics;
+  }, {
+    total: 0,
+    active: 0,
+    discarded: 0,
+  });
 }

@@ -1,20 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consultar Recursos | Gestão de Recursos</title>
   <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
-<body>
+
+<body class="consultar-page">
   <div class="bg-orb bg-orb--1"></div>
   <div class="bg-orb bg-orb--2"></div>
   <div class="bg-orb bg-orb--3"></div>
 
-  <main>
-    <p style="color:#fff;text-align:center;font-family:sans-serif;">
-      Página em construção: Consultar Recursos
-    </p>
+  <main class="page-shell">
+    <section class="page-head">
+      <div>
+        <span class="page-head__eyebrow">Consulta</span>
+        <h1 class="page-head__title text-gradient">Inventário de recursos</h1>
+        <p class="page-head__subtitle">Pesquise em tempo real por identificador, nome ou categoria e refine a listagem
+          por status e categoria.</p>
+      </div>
+      <div class="page-actions">
+        <button type="button" class="btn btn--ghost btn--auto" data-route="home">
+          <span class="btn__label">Voltar para a home</span>
+        </button>
+        <button type="button" class="btn btn--secondary btn--auto" data-route="cadastrar">
+          <span class="btn__label">Cadastrar recurso</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="card card--wide">
+      <div class="card__header consultar-page__header">
+        <p class="card__greeting">Consulta dinâmica</p>
+        <h2 class="card__title">Filtros e listagem</h2>
+        <p class="card__subtitle">Os dados são carregados do armazenamento local do navegador atual.</p>
+      </div>
+
+      <div class="consultar-page__content">
+        <aside class="consultar-page__filters">
+          <form class="form" data-filter-form>
+            <div class="form__field">
+              <label class="form__label" for="search">Busca</label>
+              <input class="form__control" id="search" name="search" type="search"
+                placeholder="Ex.: PSI, kit sensorial, psicologia" data-search-input />
+              <p class="form__hint">A busca procura por identificador, nome, categoria, sigla e status.</p>
+            </div>
+
+            <div class="form__field">
+              <label class="form__label" for="categoryFilter">Categoria</label>
+              <select class="form__select" id="categoryFilter" name="categoryId" data-category-filter>
+                <option value="">Todas as categorias</option>
+              </select>
+            </div>
+
+            <div class="form__field">
+              <label class="form__label" for="statusFilter">Status</label>
+              <select class="form__select" id="statusFilter" name="status" data-status-filter>
+                <option value="">Todos os status</option>
+                <option value="ativo">Ativo</option>
+                <option value="descartado">Descartado</option>
+              </select>
+            </div>
+
+            <div class="form__actions consultar-page__filter-actions">
+              <button type="button" class="btn btn--ghost btn--auto" data-clear-filters>
+                <span class="btn__label">Limpar filtros</span>
+              </button>
+            </div>
+          </form>
+
+          <details class="consultar-page__metrics-panel">
+            <summary>Ver resumo do inventário</summary>
+            <section class="consultar-page__metrics consultar-page__metrics--compact" data-metrics>
+              <article class="metric-card">
+                <span class="metric-card__label">Total de recursos</span>
+                <strong class="metric-card__value" data-total-count>0</strong>
+              </article>
+
+              <article class="metric-card">
+                <span class="metric-card__label">Ativos</span>
+                <strong class="metric-card__value" data-active-count>0</strong>
+              </article>
+
+              <article class="metric-card">
+                <span class="metric-card__label">Descartados</span>
+                <strong class="metric-card__value" data-discarded-count>0</strong>
+              </article>
+            </section>
+          </details>
+
+          <div class="consultar-page__selection-actions">
+            <button type="button" class="btn btn--secondary btn--auto" data-select-filtered>
+              <span class="btn__label">Selecionar filtrados</span>
+            </button>
+            <button type="button" class="btn btn--ghost btn--auto" data-clear-selection>
+              <span class="btn__label">Limpar seleção</span>
+            </button>
+            <div class="form__field consultar-page__export-field">
+              <label class="form__label" for="exportFormat">Formato do arquivo</label>
+              <select class="form__select" id="exportFormat" data-export-format>
+                <option value="csv">CSV (.csv)</option>
+                <option value="xlsx">Excel (.xlsx)</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn--secondary btn--auto" data-export-selected disabled>
+              <span class="btn__label">Salvar lista selecionada</span>
+            </button>
+            <button type="button" class="btn btn--primary btn--auto" data-print-labels disabled>
+              <span class="btn__label">Imprimir etiquetas</span>
+            </button>
+          </div>
+
+          <div class="notice notice--info" data-selection-summary>
+            Nenhum recurso selecionado para ações.
+          </div>
+
+          <div class="notice notice--info" data-result-summary>
+            Nenhum recurso cadastrado até o momento.
+          </div>
+        </aside>
+
+        <div class="consultar-page__results">
+          <div class="empty-state" data-empty-state hidden>
+            Nenhum recurso encontrado com os filtros atuais.
+          </div>
+
+          <div class="data-list consultar-page__list" data-resource-list></div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <script type="module" src="../assets/js/main.js"></script>
 </body>
+
 </html>
