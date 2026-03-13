@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastrar Recurso | Gestão de Recursos</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body class="cadastrar-page">
+  <div class="bg-orb bg-orb--1"></div>
+  <div class="bg-orb bg-orb--2"></div>
+  <div class="bg-orb bg-orb--3"></div>
+
+  <main class="page-shell">
+    <section class="page-head">
+      <div>
+        <span class="page-head__eyebrow">Cadastro</span>
+        <h1 class="page-head__title text-gradient">Novo recurso</h1>
+        <p class="page-head__subtitle">Cadastre um recurso com categoria, data de aquisição e status. O identificador é gerado automaticamente a partir da sigla definida em configurações, da data de aquisição e da sequência.</p>
+      </div>
+      <div class="page-actions">
+        <button type="button" class="btn btn--ghost btn--auto" data-route="home">
+          <span class="btn__label">Voltar para a home</span>
+        </button>
+        <button type="button" class="btn btn--secondary btn--auto" data-route="configuracoes">
+          <span class="btn__label">Configurar categorias</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="card card--wide">
+      <div class="card__header">
+        <p class="card__greeting">Formulário</p>
+        <h2 class="card__title">Dados do recurso</h2>
+        <p class="card__subtitle">Preencha os campos obrigatórios para salvar no navegador.</p>
+      </div>
+
+      <div class="cadastrar-page__content">
+        <div>
+          <div class="notice notice--info" data-category-warning hidden>
+            Nenhuma categoria foi configurada ainda. Acesse configurações antes de salvar um recurso.
+          </div>
+
+          <div class="notice notice--info" data-form-feedback hidden></div>
+
+          <form class="form" data-resource-form>
+            <div class="form__grid">
+              <div class="form__field">
+                <label class="form__label" for="categoryId">Categoria</label>
+                <select class="form__select" id="categoryId" name="categoryId" data-category-select required>
+                  <option value="">Carregando categorias...</option>
+                </select>
+                <p class="form__hint">A lista é mantida na tela de configurações.</p>
+              </div>
+
+              <div class="form__field">
+                <label class="form__label" for="acquisitionDate">Data de aquisição</label>
+                <input class="form__control" id="acquisitionDate" name="acquisitionDate" type="date" required />
+              </div>
+
+              <div class="form__field form__field--full">
+                <label class="form__label" for="name">Nome do recurso</label>
+                <input class="form__control" id="name" name="name" type="text" maxlength="120" placeholder="Ex.: Kit sensorial em EVA" required />
+              </div>
+
+              <div class="form__field form__field--full">
+                <span class="form__label">Status</span>
+                <div class="choice-group">
+                  <label class="choice-card">
+                    <input class="choice-card__input" type="radio" name="status" value="ativo" checked />
+                    <span class="choice-card__label">Ativo</span>
+                  </label>
+                  <label class="choice-card">
+                    <input class="choice-card__input" type="radio" name="status" value="descartado" />
+                    <span class="choice-card__label">Descartado</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__actions">
+              <button type="button" class="btn btn--ghost btn--auto" data-route="home">
+                <span class="btn__label">Cancelar</span>
+              </button>
+              <button type="submit" class="btn btn--primary btn--auto" data-submit-resource>
+                <span class="btn__label">Salvar recurso</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="cadastrar-page__aside">
+          <div class="identifier-preview">
+            <div class="identifier-preview__label">Prévia do identificador</div>
+            <div class="identifier-preview__value" data-identifier-preview>CAT-DDMMAA-01</div>
+            <div class="identifier-preview__meta" data-identifier-meta>Aguardando categoria para calcular a sequência.</div>
+          </div>
+
+          <div class="notice">
+            O código segue o padrão <strong>SIGLA-DDMMAA-XX</strong>.<br />
+            Exemplo: <strong>PSI-120326-01</strong>.
+          </div>
+
+          <div class="notice">
+            O cadastro é salvo em <strong>localStorage</strong> no navegador atual. Limpar os dados do navegador remove os registros locais.
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

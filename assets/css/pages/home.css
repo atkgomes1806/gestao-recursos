@@ -1,0 +1,12 @@
+/* ─────────────────────────────────────────────
+   Home — estilos específicos da página inicial
+   ───────────────────────────────────────────── */
+
+/* Layout centralizado da home */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}

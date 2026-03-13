@@ -1,0 +1,53 @@
+/* ─────────────────────────────────────────────
+   Cadastrar — layout da página de cadastro
+   ───────────────────────────────────────────── */
+.cadastrar-page .card__header {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.cadastrar-page__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.9fr);
+  gap: 28px;
+}
+
+.cadastrar-page__aside {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.identifier-preview {
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(31, 153, 255, 0.14), rgba(255, 255, 255, 0.04));
+  border: 1px solid rgba(31, 153, 255, 0.18);
+}
+
+.identifier-preview__label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary-light);
+  margin-bottom: 8px;
+}
+
+.identifier-preview__value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.identifier-preview__meta {
+  margin-top: 8px;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .cadastrar-page__content {
+    grid-template-columns: 1fr;
+  }
+}

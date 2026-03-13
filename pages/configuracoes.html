@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configurações | Gestão de Recursos</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body class="configuracoes-page">
+  <div class="bg-orb bg-orb--1"></div>
+  <div class="bg-orb bg-orb--2"></div>
+  <div class="bg-orb bg-orb--3"></div>
+
+  <main class="page-shell">
+    <section class="page-head">
+      <div>
+        <span class="page-head__eyebrow">Configurações</span>
+        <h1 class="page-head__title text-gradient">Categorias e siglas</h1>
+        <p class="page-head__subtitle">Defina as categorias que serão usadas no cadastro. Cada categoria precisa de uma sigla única, usada para compor o identificador automático do recurso.</p>
+      </div>
+      <div class="page-actions">
+        <button type="button" class="btn btn--ghost btn--auto" data-route="home">
+          <span class="btn__label">Voltar para a home</span>
+        </button>
+        <button type="button" class="btn btn--secondary btn--auto" data-route="cadastrar">
+          <span class="btn__label">Ir para cadastro</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="card card--wide">
+      <div class="card__header">
+        <p class="card__greeting">Identificação</p>
+        <h2 class="card__title">Cadastro de categorias</h2>
+        <p class="card__subtitle">Exemplo de código gerado: <span class="code-example">PSIM-120326-03</span></p>
+      </div>
+
+      <div class="configuracoes-page__content">
+        <div class="configuracoes-page__panel">
+          <div class="notice notice--info" data-settings-feedback hidden></div>
+
+          <form class="form" data-category-form>
+            <div class="form__grid">
+              <div class="form__field">
+                <label class="form__label" for="categoryName">Nome da categoria</label>
+                <input class="form__control" id="categoryName" type="text" maxlength="80" placeholder="Ex.: Psicologia" data-category-name required />
+              </div>
+
+              <div class="form__field">
+                <label class="form__label" for="categoryCode">Sigla</label>
+                <input class="form__control" id="categoryCode" type="text" maxlength="6" placeholder="Ex.: PSI" data-category-code required />
+                <p class="form__hint">Use apenas letras maiúsculas, entre 2 e 6 caracteres.</p>
+              </div>
+            </div>
+
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary btn--auto">
+                <span class="btn__label">Salvar categoria</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="configuracoes-page__panel">
+          <div>
+            <h3>Lista atual</h3>
+            <p class="card__subtitle">Essas categorias aparecem no select da tela de cadastro.</p>
+          </div>
+
+          <div class="empty-state" data-category-empty>
+            Nenhuma categoria cadastrada ainda.
+          </div>
+
+          <div class="data-list" data-category-list></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

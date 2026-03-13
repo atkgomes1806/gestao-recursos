@@ -1,0 +1,78 @@
+/* ─────────────────────────────────────────────
+   Notice — mensagens de feedback e listas simples
+   ───────────────────────────────────────────── */
+.notice {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.notice--info {
+  background: rgba(31, 153, 255, 0.10);
+  border-color: rgba(31, 153, 255, 0.24);
+}
+
+.notice--success {
+  background: rgba(52, 199, 89, 0.12);
+  border-color: rgba(52, 199, 89, 0.3);
+}
+
+.notice--error {
+  background: rgba(255, 99, 71, 0.12);
+  border-color: rgba(255, 99, 71, 0.3);
+}
+
+.notice[hidden] {
+  display: none;
+}
+
+.metric-list,
+.data-list {
+  display: grid;
+  gap: 12px;
+}
+
+.data-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.data-item__title {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.data-item__meta {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.empty-state {
+  padding: 22px;
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(31, 153, 255, 0.16);
+  color: var(--color-primary-light);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}

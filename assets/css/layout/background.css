@@ -1,0 +1,54 @@
+/* ─────────────────────────────────────────────
+   Background — corpo e orbs animados
+   ───────────────────────────────────────────── */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d2140 40%, #0a3060 70%, #0d2140 100%);
+  position: relative;
+}
+
+/* ── Orbs de fundo ── */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: drift 12s ease-in-out infinite alternate;
+}
+
+.bg-orb--1 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+  top: -120px;
+  left: -100px;
+  animation-duration: 14s;
+}
+
+.bg-orb--2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #005bbb 0%, transparent 70%);
+  bottom: -80px;
+  right: -80px;
+  animation-duration: 11s;
+  animation-delay: -4s;
+}
+
+.bg-orb--3 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%);
+  top: 50%;
+  left: 60%;
+  opacity: 0.3;
+  animation-duration: 17s;
+  animation-delay: -8s;
+}
+
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(30px, 20px) scale(1.06); }
+}

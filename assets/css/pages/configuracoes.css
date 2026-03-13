@@ -1,0 +1,31 @@
+/* ─────────────────────────────────────────────
+   Configurações — gerenciamento de categorias
+   ───────────────────────────────────────────── */
+.configuracoes-page .card__header {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.configuracoes-page__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.95fr);
+  gap: 28px;
+}
+
+.configuracoes-page__panel {
+  display: grid;
+  gap: 18px;
+}
+
+.code-example {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: var(--font-size-sm);
+  color: var(--color-primary-light);
+}
+
+@media (max-width: 900px) {
+  .configuracoes-page__content {
+    grid-template-columns: 1fr;
+  }
+}

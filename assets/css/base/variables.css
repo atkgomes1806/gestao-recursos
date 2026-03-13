@@ -1,0 +1,54 @@
+/* ─────────────────────────────────────────────
+   Design Tokens — variáveis globais do sistema
+   ───────────────────────────────────────────── */
+:root {
+  /* Paleta principal */
+  --color-primary:       #1F99FF;
+  --color-primary-dark:  #0f7de0;
+  --color-primary-light: #6ec0ff;
+
+  /* Glassmorphism */
+  --glass-bg:     rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-shadow: rgba(31, 153, 255, 0.18);
+
+  /* Texto */
+  --text-primary:   #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-muted:     rgba(255, 255, 255, 0.25);
+
+  /* Tipografia */
+  --font-family: 'Inter', sans-serif;
+  --font-size-xs:  12px;
+  --font-size-sm:  13px;
+  --font-size-md:  14px;
+  --font-size-base: 15px;
+  --font-size-lg:  18px;
+  --font-size-xl:  23px;
+  --font-size-2xl: 28px;
+
+  /* Espaçamento */
+  --spacing-xs:  6px;
+  --spacing-sm:  10px;
+  --spacing-md:  14px;
+  --spacing-lg:  22px;
+  --spacing-xl:  30px;
+  --spacing-2xl: 40px;
+  --spacing-3xl: 52px;
+
+  /* Bordas */
+  --radius-sm:  12px;
+  --radius-md:  16px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  /* Transições */
+  --transition-fast:   0.18s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow:   0.7s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Z-index */
+  --z-background: -1;
+  --z-content:     1;
+  --z-overlay:    10;
+}

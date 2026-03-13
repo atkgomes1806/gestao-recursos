@@ -1,0 +1,151 @@
+/* ─────────────────────────────────────────────
+   Card — componente de painel glass
+   ───────────────────────────────────────────── */
+
+/* Propriedade animada para rotação da borda */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 135deg;
+  inherits: false;
+}
+
+.card {
+  position: relative;
+  width: min(480px, 92vw);
+  padding: var(--spacing-3xl) 44px 48px;
+  border-radius: var(--radius-xl);
+  background: var(--glass-bg);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 8px 40px var(--glass-shadow),
+    0 2px 0 rgba(255, 255, 255, 0.08) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.18) inset;
+  overflow: hidden;
+  animation: cardFadeIn var(--transition-slow) both;
+}
+
+.card--wide {
+  width: min(980px, 100%);
+}
+
+.card--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.9fr);
+  gap: 28px;
+}
+
+/* Reflexo superior (liquid glass) */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.04) 40%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Borda brilhante giratória */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    var(--angle, 135deg),
+    rgba(255, 255, 255, 0.35),
+    rgba(31, 153, 255, 0.55),
+    transparent,
+    rgba(31, 153, 255, 0.25)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+  pointer-events: none;
+  animation: rotateBorder 6s linear infinite;
+}
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(28px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes rotateBorder {
+  to { --angle: 495deg; }
+}
+
+/* ── Header do card ── */
+.card__header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.card__footer {
+  margin-top: var(--spacing-xl);
+  text-align: center;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* ── Logo / ícone ── */
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  box-shadow: 0 6px 24px rgba(31, 153, 255, 0.4);
+  margin-bottom: var(--spacing-lg);
+}
+
+.logo-icon svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Textos do cabeçalho ── */
+.card__greeting {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-light);
+  margin-bottom: var(--spacing-xs);
+}
+
+.card__title {
+  font-size: var(--font-size-2xl);
+}
+
+.card__subtitle {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+}
+
+/* ── Responsividade ── */
+@media (max-width: 440px) {
+  .card { padding: 38px 26px 36px; }
+  .card__title { font-size: var(--font-size-xl); }
+}
+
+@media (max-width: 900px) {
+  .card--split {
+    grid-template-columns: 1fr;
+  }
+}
